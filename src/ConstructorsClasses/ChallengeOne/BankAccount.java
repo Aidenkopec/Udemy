@@ -1,4 +1,4 @@
-package ConstructorsClasses;
+package ConstructorsClasses.ChallengeOne;
 
 // Create a new class for a bank account
 // Create fields for the account number, balance, customer name, email and phone number.
@@ -12,10 +12,10 @@ package ConstructorsClasses;
 // confirm your code is working.
 // Add some System.out.println's in the two methods above as well.
 
-public class ChallengeOne {
-    public static void main (String[] args){
+public class BankAccount {
+    public static void main(String[] args) {
 
-        ChallengeOne one = new ChallengeOne(1,100,"Aiden", "Aiden@me.com", "403-333-3333");
+        BankAccount one = new BankAccount(1, 100, "Aiden", "Aiden@me.com", "403-333-3333");
         System.out.println("Account Number: " + one.getAccountNumber());
         System.out.println("Balance: " + one.getBalance());
         System.out.println("Name: " + one.getCustomerName());
@@ -24,11 +24,14 @@ public class ChallengeOne {
 
         System.out.println();
 
-        one.deposit(100);
+        one.deposit(200);
 
         System.out.println();
 
         one.withdraw(1);
+        one.withdraw(25);
+        one.withdraw(23);
+        one.withdraw(5);
     }
 
     private int accountNumber;
@@ -37,10 +40,12 @@ public class ChallengeOne {
     private String email;
     private String phoneNumber;
 
-    public ChallengeOne() {
+    public BankAccount() {
+        System.out.println("Empty Constructor Called");
+//        this(56789, 2.50, "aidennn", "hi@me.com", "333-333-3333");
     }
 
-    public ChallengeOne(int accountNumber, double balance, String customerName, String email, String phoneNumber) {
+    public BankAccount(int accountNumber, double balance, String customerName, String email, String phoneNumber) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.customerName = customerName;
@@ -88,16 +93,16 @@ public class ChallengeOne {
         this.phoneNumber = phoneNumber;
     }
 
-    public void deposit(double depositAmount){
+    public void deposit(double depositAmount) {
         this.balance += depositAmount;
         System.out.println("Deposit of " + depositAmount + " has been made"
-            + "\nNew balance is " + this.balance);
+                + "\nNew balance is " + this.balance);
     }
 
-    public void withdraw(double withdrawAmount){
-        if(this.balance - withdrawAmount < 0){
+    public void withdraw(double withdrawAmount) {
+        if (this.balance - withdrawAmount < 0) {
             System.out.println("Insufficient funds");
-        }else{
+        } else {
             this.balance -= withdrawAmount;
             System.out.println("Updated balance " + this.balance);
         }
