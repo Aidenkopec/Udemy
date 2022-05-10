@@ -32,6 +32,13 @@ public class BankAccount {
         one.withdraw(25);
         one.withdraw(23);
         one.withdraw(5);
+
+        System.out.println();
+
+        BankAccount two = new BankAccount("Jack", "jack123@me.com", "403-222-1111");
+        System.out.println("Balance: " + two.getBalance());
+        System.out.println("Account Number: " + two.getAccountNumber());
+
     }
 
     private int accountNumber;
@@ -48,6 +55,13 @@ public class BankAccount {
     public BankAccount(int accountNumber, double balance, String customerName, String email, String phoneNumber) {
         this.accountNumber = accountNumber;
         this.balance = balance;
+        this.customerName = customerName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public BankAccount(String customerName, String email, String phoneNumber) {
+        this(99999, 100, customerName, email, phoneNumber);
         this.customerName = customerName;
         this.email = email;
         this.phoneNumber = phoneNumber;
