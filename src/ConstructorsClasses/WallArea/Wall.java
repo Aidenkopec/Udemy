@@ -18,7 +18,11 @@ public class Wall {
     }
 
     public void setWidth(double width) {
-        this.width = width;
+        if(width < 0){
+            this.width = 0;
+        }else{
+            this.width = width;
+        }
     }
 
     public double getHeight() {
@@ -26,7 +30,11 @@ public class Wall {
     }
 
     public void setHeight(double height) {
-        this.height = height;
+        if(height < 0){
+            this.height = 0;
+        }else{
+            this.height = height;
+        }
     }
 
     public double getArea(){
