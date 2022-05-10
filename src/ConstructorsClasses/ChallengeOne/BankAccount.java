@@ -39,6 +39,11 @@ public class BankAccount {
         System.out.println("Balance: " + two.getBalance());
         System.out.println("Account Number: " + two.getAccountNumber());
 
+        System.out.println();
+
+        BankAccount three = new BankAccount();
+//        System.out.println(three.getAccountNumber());
+
     }
 
     private int accountNumber;

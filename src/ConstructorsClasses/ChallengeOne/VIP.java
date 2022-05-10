@@ -10,10 +10,61 @@ package ConstructorsClasses.ChallengeOne;
 // test and confirm it works.
 
 public class VIP {
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
+        VIP customerOne = new VIP();
+        System.out.println(customerOne.getName());
+        System.out.println(customerOne.getCreditLimit());
+        System.out.println(customerOne.getEmailAddress());
+
+        System.out.println();
+
+        VIP customerTwo = new VIP("Jack", 30_000);
+        System.out.println(customerTwo.getName());
+        System.out.println(customerTwo.getCreditLimit());
+        System.out.println(customerTwo.getEmailAddress());
+
+        System.out.println();
+
+        VIP customerThree = new VIP("Jack", 30_000, "jackjones@jack.com");
+        System.out.println(customerThree.getName());
+        System.out.println(customerThree.getCreditLimit());
+        System.out.println(customerThree.getEmailAddress());
+
 
     }
 
+    private String name;
+    private double creditLimit;
+    private String emailAddress;
+
+    public VIP() {
+        this("Aiden", 1_000_000, "Aiden@aiden.com");
+    }
+
+    public VIP(String name, double creditLimit) {
+        this(name, creditLimit, "default@customer.com");
+        this.name = name;
+        this.creditLimit = creditLimit;
+    }
+
+    public VIP(String name, double creditLimit, String emailAddress) {
+        this.name = name;
+        this.creditLimit = creditLimit;
+        this.emailAddress = emailAddress;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getCreditLimit() {
+        return creditLimit;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
 
 
 }
