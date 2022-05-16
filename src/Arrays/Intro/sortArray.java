@@ -1,21 +1,60 @@
 package Arrays.Intro;
 
-import java.util.Collection;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class sortArray {
     private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Integer[] array = new Integer[];
 
-//                {106, 26, 81, 5, 15};
-//        Arrays.sort(array, Comparator.reverseOrder());
+        int[] myIntegers = getIntegers(5);
+        int[] sorted = sortIntegers(myIntegers);
+        printArray(sorted);
 
-
-
-        System.out.println("Array in descending order: " + Arrays.toString(array));
     }
 
+    public static int[] getIntegers(int capacity) {
+        int[] array = new int[capacity];
+        System.out.println("Enter " + capacity + " integer value\n");
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element " + i + " contents " + array[i]);
+        }
+    }
+
+    public static int[] sortIntegers(int[] array) {
+//        int[] sortedArray = new int[array.length]; // Creating an array that is exactly the same size to the one that has been passed to us
+//        for (int i = 0; i < array.length; i++) {
+//            sortedArray[i] = array[i]; // using forLoop to retrieve elements from array[i], sorting values in sortedArray
+//        }
+
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+
+        boolean flag = true;
+        // element 0    50
+        // element 1    160
+        // element 2    40
+        int temp;
+
+        while (flag) {
+            flag = false; // if numbers have not been sorted will be assigned true;
+            for (int i = 0; i < sortedArray.length - 1; i++) {
+                if (sortedArray[i] < sortedArray[i + 1]) {
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = temp;
+                    flag = true;
+                }
+            }
+
+        }
+        return sortedArray;
+    }
 }
