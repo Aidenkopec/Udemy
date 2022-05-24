@@ -30,5 +30,8 @@ public class GroceryList {
         groceryList.remove(position);
     }
 
+    public String findItem(String searchItem){
+        boolean exists = groceryList.contains(searchItem);
+    }
 
 }
